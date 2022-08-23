@@ -1,0 +1,46 @@
+﻿@using TravelingDiaries.ViewModel
+@model ShoppingCartViewModel
+
+<h2>Your Destinations are waiting for you. </h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        @*<th>Selected amount</th>*@
+        <th>Places</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Subtotal</th>
+                  <th class="text-right">Add</th>
+                   <th class="text-right">Member</th>
+                <th class="text-right">Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+    {
+        <tr>
+            @*<td class="text-center">@line.Amount</td>*@
+            <td class="text-left">@line.Place.PlaceName</td>
+            <td class="text-right">@line.Place.PackagePrice.ToString("c")</td>
+            <td class="text-right">
+                @((line.Amount * line.Place.PackagePrice).ToString("c"))
+            </td>
+                 <td class="btn btn-primary"><a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pieId="@line.Place.PlaceID"><i class="bi bi-plus-circle-fill"></i></a></td>
+                  <td class="text-center">@line.Amount</td>
+            <td class=" btn btn-danger"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-pieId="@line.Place.PlaceID"><i class="bi bi-dash-circle-fill"></i></a></td>
+        </tr>
+    }
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4" class="text-right">Total:</td>
+        <td class="text-right">
+         Total Amount:  @Model.ShoppingCartTotal.ToString("c")
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<a asp-controller="ShoppingCart" asp-action="Clear">EmptyCart</a>
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Checkout</a>
+</dic> 

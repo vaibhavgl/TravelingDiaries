@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Place>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+    }
+    body{
+           width:100%;
+    min-height:100vh;
+    padding:1%;
+    background-image:url(images/background.jpg);
+    background-position:center;
+    background-size:cover;
+  
+    }
+.container{
+ display:flex;
+ align-items:center;
+ justify-content:center; 
+ display:flex;
+}
+ .search-bar{
+ width:100%;
+ max-width:700px;
+ /*background:rgba(255,255,255,0.2);*/
+ background:white;
+ display:flex;
+ align-items:center;
+ border-radius:60px;
+ padding:10px 20px;
+      /*backdrop-filter:blur(4px) saturate(180%);*/
+ 
+ }
+ .search-bar input{
+        background:transparent;
+        flex:1;
+        border:0;
+        outline:none;
+        padding:24px 20px;
+        font-size:20px;
+        color:#cac7ff;
+   
+
+ }
+ ::placeholder{
+     color:#cac7ff;
+ }
+ .search-bar img{
+     width:25px;
+ 
+ }
+
+ .search-bar button{
+ 
+     border:0;
+     border-radius:50%;
+     width:60px;
+     height:60px;
+     background:#58629b;
+
+
+ }
+</style>
+
+<html>
+    <head>
+           <div class="container">
+              <form action="" class="search-bar">
+            <input type="text" placeholder="Seach Places" name="q">
+            <button type="submit" asp-action="Search" asp-controller="Places"><img src="images/search.png"></img></button>
+
+        </form>
+         </div>
+
+         </head>
+
+       
+
+               
+        <body>
+            <div class="display-6" style="margin-left:250px;color:white;">Welcome to the trip advisors</div>
+ 
+                <div class="card border-dark mb-3" style="max-width:20rem; display:inline-block;margin:100px;color:white;">
+  <div class="card-header">Login as Admin</div>
+  <div class="card-body">
+    <h4 class="card-title">Dark card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card border-dark mb-3"style="max-width: 20rem; display:inline-block;margin:100px; color:white;">
+  <div class="card-header">Login as customer</div>
+  <div class="card-body">
+    <h4 class="card-title">Dark card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+   </div>
+
+
+
+        </body>
+
+
+
+   
+
+
+</html>

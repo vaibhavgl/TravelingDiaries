@@ -1,0 +1,50 @@
+﻿@model TravelingDiaries.Models.Place
+
+@{
+    ViewData["Title"] = "PlaceDetail";
+}
+
+
+
+ <img style=" border: 5px solid white" src="@Html.DisplayFor(model => model.Image)">
+<img style=" border: 5px solid white" src="@Html.DisplayFor(model => model.Image1)">
+<img style=" border: 5px solid white" src="@Html.DisplayFor(model => model.Image2)">
+<img style=" border: 5px solid white" src="@Html.DisplayFor(model => model.Image3)">
+
+<div>
+    <h4>Place</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlaceName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlaceName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShortDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+      
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PackagePrice)
+        </dt>
+        <dd class = "col-sm-10">     
+            Rs:@Html.DisplayFor(model => model.PackagePrice)
+        </dd>
+    </dl>
+   <button type="button" class="btn btn-warning"><a  style="text-decoration:none; color:white"; asp-action="AddToShoppingCart" asp-controller="ShoppingCart" asp-route-id=@ViewData["ID"]>Buy Now</a></button>
+
+   <button type="button" class="btn btn-info">   <a style="text-decoration:none; color:white;"  asp-action="Index" asp-controller="Home">Back to List</a></button>
+</div>
+<div>
+ 
+</div>
